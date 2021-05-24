@@ -7,7 +7,7 @@ from  nltk.stem import SnowballStemmer
 from nltk.stem import WordNetLemmatizer 
 import os
 
-path = os.getcwd()+'\\data\\paired_comments\\Paired_comment.csv'
+path = os.getcwd()+ r'/data/paired_comments/Paired_comment.csv'
 
 
 data=pd.read_csv(path)
@@ -174,17 +174,20 @@ from tensorflow.keras.utils import to_categorical
 decoder_final_output = to_categorical(decoder_final_output, len(vocab))
 
 
-glove_path=os.getcwd()+'\\data\\glove6b50d\\glove.6B.50d.txt'
+glove_path=os.getcwd()+r'/data/glove6b50d/glove.6B.50d.txt'
 
 embeddings_index = {}
-with open(glove_path, encoding='utf-8') as f:
-    for line in f:
-        values = line.split()
-        word = values[0]
-        coefs = np.asarray(values[1:], dtype='float32')
-        embeddings_index[word] = coefs
-    f.close()
-
+try:
+    with open(glove_path, encoding='utf-8') as f:
+        for line in f:
+            values = line.split()
+            word = values[0]
+            coefs = np.asarray(values[1:], dtype='float32')
+            embeddings_index[word] = coefs
+        f.close()
+except:
+  print("\n \n You will need to download glove.6B.50d.txt and put it in the data/glove6b50d file\n http://nlp.stanford.edu/data/glove.6B.zip ")
+  sys.exit(1)
 print("Glove Loded!")
 
 
@@ -246,13 +249,13 @@ train=False
 
 
 if load_model:
-    model.load_weights(os.getcwd()+'\\weights\\chatbot_weightsV3_8w_n0.h5')
+    model.load_weights(os.getcwd()+r'/weights/chatbot_weightsV3_8w_n0.h5')
 
 if train:
     model.compile(optimizer=keras.optimizers.Adam(), loss='categorical_crossentropy', metrics=['acc'])
     model.fit([encoder_inp, decoder_inp], decoder_final_output, epochs=10, batch_size=24) 
 
-    model.save_weights(os.getcwd()+'\\weights\\chatbot_weightsV3_8w_n0.h5')
+    model.save_weights(os.getcwd()+r'/weights/chatbot_weightsV3_8w_n0.h5')
 
 
 def make_inference_models():
