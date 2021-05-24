@@ -5,8 +5,11 @@ import keras
 import tensorflow as tf
 from  nltk.stem import SnowballStemmer
 from nltk.stem import WordNetLemmatizer 
+from better_profanity import profanity
 import os
+import sys
 
+nltk.download('wordnet')
 path = os.getcwd()+ r'/data/paired_comments/Paired_comment.csv'
 
 
