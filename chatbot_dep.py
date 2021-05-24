@@ -9,6 +9,7 @@ from better_profanity import profanity
 import os
 import sys
 
+nltk.download('wordnet')
 path = os.getcwd()+r'/data/paired_comments/Paired_comment.csv'
 
 
