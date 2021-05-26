@@ -26,6 +26,10 @@ To deploy the project I used the Flask API.
 
 The chatbot works, but it needs improvement. One of the reasons why I think the bot does not perform well could be because I did not use lots of comments/response pairs. A project like this normally needs a lot of data to have a good result. Also, Reddit comments are not always conversations, so a response could be completely unrelated to the original comment. 
 
+![img](https://github.com/KevinSeyranoglu/Chatbot-Project/blob/main/chatbotEx.JPG)
+
+
+
 
 ## Bonus Data cleaning
 Because those comments are from people from the internet. some comments contain swears. So I had to censor the comments. So If you want to remove the sensor, just set censor=False in the chatbot_.py 
