@@ -32,7 +32,7 @@ The chatbot works, but it needs improvement. One of the reasons why I think the 
 
 
 ## Bonus Data cleaning
-Because those comments are from people from the internet. some comments contain swears. So I had to censor the comments. So If you want to remove the sensor, just set censor=False in the chatbot_.py 
+Because those comments are from people from the internet. some comments contain swears. So I had to censor the comments. So If you want to remove the censor, just set censor=False in the chatbot_.py 
 
 ## Try it yourself! 
 
@@ -44,7 +44,11 @@ at  http://nlp.stanford.edu/data/glove.6B.zip
 or it can be done from the command lines with 
 
 wget  http://nlp.stanford.edu/data/glove.6B.zip
+
+
 unzip glove.zip
+
+
 rm glove.zip
 
 run app.py and click on the link
